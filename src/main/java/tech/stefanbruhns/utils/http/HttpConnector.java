@@ -2,6 +2,7 @@ package tech.stefanbruhns.utils.http;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -36,7 +37,7 @@ public class HttpConnector {
 				CloseableHttpResponse response = httpclient.execute(httpget);) {
 
 			HttpEntity httpEntity = response.getEntity();
-			String content = HttpResponseReader.readFromStream(httpEntity.getContent());
+			String content = HttpResponseReader.readFromStream(httpEntity.getContent(), StandardCharsets.UTF_8.name());
 
 			System.out.printf("Content-length: %s\r\n", httpEntity.getContentLength());
 			System.out.printf("Content: %s\r\n", content);
