@@ -33,8 +33,10 @@ public class HttpConnector {
 		HttpGet httpget = new HttpGet(uri);
 		System.out.println("URI: " + httpget.getURI());
 
-		try (CloseableHttpClient httpclient = /*HttpClients.createDefault()*/HttpClientFactory.getHttpClient();
-				CloseableHttpResponse response = httpclient.execute(httpget);) {
+		try (
+				CloseableHttpClient httpclient = /*HttpClients.createDefault()*/HttpClientFactory.getHttpClient();
+				CloseableHttpResponse response = httpclient.execute(httpget);
+			) {
 
 			HttpEntity httpEntity = response.getEntity();
 			String content = HttpResponseReader.readFromStream(httpEntity.getContent(), StandardCharsets.UTF_8.name());
