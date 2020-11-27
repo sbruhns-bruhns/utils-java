@@ -36,7 +36,6 @@ public class RandomUtil {
     /**
      * Return a random long between min and max.
      * 
-     * @param min
      * @param max
      * @return
      */
