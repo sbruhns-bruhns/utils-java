@@ -1,6 +1,7 @@
 package tech.stefanbruhns.utils.collections;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -165,9 +166,14 @@ public class CollectionsUtil {
     // ---------------------------------------------------------------------
     // CONTAINS
     // ---------------------------------------------------------------------
-    public static <T> boolean contains(final T[] array, T element) {
-    	List<T> list = java.util.Arrays.asList(array);
-    	return list.contains(element);
+    public static <T> boolean contains(boolean useList, final T[] array, T element) {
+    	if (useList) {
+	    	List<T> list = java.util.Arrays.asList(array);
+	    	return list.contains(element);
+
+    	} else {
+    		return Arrays.stream(array).anyMatch(element::equals);	
+    	}
     }
 
     // ---------------------------------------------------------------------

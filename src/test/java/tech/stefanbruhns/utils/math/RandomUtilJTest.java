@@ -34,12 +34,13 @@ public class RandomUtilJTest extends RandomUtil {
 	public void TEST_getRandomStringFromArray() {
 		String f = getRandom(fruits);
 		assertNotNull(f);
-		assertTrue(contains(fruits, f));
+		assertTrue(contains(true, fruits, f));
+		assertTrue(contains(false, fruits, f));
 	}
 	
-	@Test
-	public void TEST_getRandomInt() {
-		int n = getRandomInt(integers);
-		
-	}
+//	@Test
+//	public void TEST_getRandomInt() {
+//		int n = getRandomInt(integers);
+//		
+//	}
 }
